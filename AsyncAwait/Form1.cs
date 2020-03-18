@@ -14,7 +14,7 @@ namespace AsyncAwait
     public partial class Form1 : Form
     {
 
-        List<sortida>;
+        //List<sortida>;
 
         public Form1()
         {
