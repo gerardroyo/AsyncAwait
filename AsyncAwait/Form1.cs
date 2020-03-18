@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections;
 
 namespace AsyncAwait
 {
     public partial class Form1 : Form
     {
 
-        //List<sortida>;
 
+        ArrayList sortida = new ArrayList();
         public Form1()
         {
             InitializeComponent();
@@ -28,8 +29,10 @@ namespace AsyncAwait
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             Stopwatch sw = new Stopwatch();
             sw.Start();
+
 
             foreach (string d in System.IO.Directory.GetDirectories(@"C:\Users\roshs\Documents\prueba"))
             {
@@ -39,9 +42,19 @@ namespace AsyncAwait
                     System.Threading.Thread.Sleep(1);
                 }
             }
+            toList();
 
             sw.Stop();
-            timer1.Text = clock.Elapsed.TotalSeconds.ToString() + "segundos";
+            timer1.Text = sw.Elapsed.TotalSeconds.ToString() + " segundos";
+        }
+
+        private void toList()
+        {
+            ListBox _list = new ListBox();
+            for(int i = 0; i < sortida.Count; i++)
+            {
+                _list.Items.Add(sortida.IsReadOnly);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,6 +75,8 @@ namespace AsyncAwait
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+
 
         }
 

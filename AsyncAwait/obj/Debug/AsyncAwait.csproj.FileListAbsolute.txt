@@ -7,3 +7,4 @@ C:\Users\roshs\source\repos\AsyncAwait\AsyncAwait\obj\Debug\AsyncAwait.Propertie
 C:\Users\roshs\source\repos\AsyncAwait\AsyncAwait\obj\Debug\AsyncAwait.csproj.GenerateResource.cache
 C:\Users\roshs\source\repos\AsyncAwait\AsyncAwait\obj\Debug\AsyncAwait.exe
 C:\Users\roshs\source\repos\AsyncAwait\AsyncAwait\obj\Debug\AsyncAwait.pdb
+C:\Users\roshs\source\repos\AsyncAwait\AsyncAwait\obj\Debug\AsyncAwait.csproj.CoreCompileInputs.cache
