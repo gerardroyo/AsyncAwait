@@ -27,9 +27,76 @@ namespace AsyncAwait
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            
+
+            /*Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+
+            foreach (string d in System.IO.Directory.GetDirectories(@"C:\Users\roshs\Documents\prueba"))
+            {
+                foreach (string s in System.IO.Directory.GetFiles(d))
+                {
+                    sortida.Add(s);
+                    System.Threading.Thread.Sleep(1);
+                }
+            }
+
+            listBox1.DataSource = sortida;
+
+            sw.Stop();
+            timer1.Text = sw.Elapsed.TotalSeconds.ToString() + " segundos";*/
+            await list();
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            /*Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            Parallel.ForEach(System.IO.Directory.GetDirectories(@"C:\Users\roshs\Documents\prueba"), sortidas2 =>
+            {
+                foreach (string s in System.IO.Directory.GetFiles(sortidas2))
+                {
+                    sortida.Add(s);
+                    System.Threading.Thread.Sleep(1);
+                }
+            });
+            listBox2.DataSource = sortida;
+
+            sw.Stop();
+            timer2.Text = sw.Elapsed.TotalSeconds.ToString() + " segundos";*/
+            await list2();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var fecha = DateTime.Now.ToString("HH:mm:ss");
+            textBox3.Text = "Són les " + fecha;
+        }
+
+        public async Task list2 ()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            Parallel.ForEach(System.IO.Directory.GetDirectories(@"C:\Users\roshs\Documents\prueba"), sortidas2 =>
+            {
+                foreach (string s in System.IO.Directory.GetFiles(sortidas2))
+                {
+                    sortida.Add(s);
+                    System.Threading.Thread.Sleep(1);
+                }
+            });
+            listBox2.DataSource = sortida;
+
+            sw.Stop();
+            timer2.Text = sw.Elapsed.TotalSeconds.ToString() + " segundos";
+        }
+
+        public async Task list ()
+        {
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
@@ -42,35 +109,11 @@ namespace AsyncAwait
                     System.Threading.Thread.Sleep(1);
                 }
             }
-            toList();
+
+            listBox1.DataSource = sortida;
 
             sw.Stop();
             timer1.Text = sw.Elapsed.TotalSeconds.ToString() + " segundos";
-        }
-
-        private void toList()
-        {
-            ListBox _list = new ListBox();
-            for(int i = 0; i < sortida.Count; i++)
-            {
-                _list.Items.Add(sortida.IsReadOnly);
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-
-
-
-            sw.Stop();
-            timer2.Text = sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff" + "segundos");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
